@@ -34,7 +34,7 @@ class Program
             // Send an email notification about the IP change
             SendEmail(previousIPAddress, currentIPAddress);
         }
-        else
+         else
         {
             Console.WriteLine("No change in local IP address.");
         }
@@ -135,7 +135,7 @@ class Program
             string smtpPass = mailSettings["SmtpPass"];
             string fromAddress = mailSettings["FromAddress"];
             string[] toAddresses = mailSettings.GetSection("ToAddresses").Get<string[]>();
-            if (toAddresses.Length > 0)
+            if (toAddresses.Length == 0)
             {
                 Console.WriteLine($"No recipients found. Skipping email.");
                 return;
